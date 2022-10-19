@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MediMonitor.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MediMonitor"
+    xmlns:pages="clr-namespace:MediMonitor.Pages"
+    xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome"
+    Shell.FlyoutBehavior="Flyout">
+
+    <ShellContent
+        FlyoutItemIsVisible="False"
+        Title="Loading"
+        ContentTemplate="{ DataTemplate pages:LoadingPage }"
+        Route="Loading" /> 
+
+    <ShellContent
+        FlyoutItemIsVisible="False"
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="SignIn" />
+
+    <FlyoutItem Route="Main" Title="MediMonitor" FlyoutDisplayOptions="AsMultipleItems">
+
+        <ShellContent x:Name="ShellSurvey" Route="Survey" Title="Survey"  ContentTemplate="{ DataTemplate pages:SurveyPage }">
+            <ShellContent.Icon>
+                <FontImageSource
+                    FontFamily="FontAwesomeLight"
+                    Glyph="{ Static fontawesome:Regular.User }"
+                    Color="Black"
+            />
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent Route="History" Title="History" ContentTemplate="{ DataTemplate pages:HistoryPage }">
+            <ShellContent.Icon>
+                <FontImageSource
+                    FontFamily="FontAwesomeLight"
+                    Glyph="{ Static fontawesome:Regular.Calendar }"
+                    Color="Black"
+            />
+            </ShellContent.Icon>
+        </ShellContent>
+
+    </FlyoutItem>
+
+    <MenuItem
+        Text="Sign Out"
+        Clicked="MenuItem_Clicked"
+    >
+        <MenuItem.IconImageSource>
+            <FontImageSource
+                    FontFamily="FontAwesomeLight"
+                    Glyph="{ Static fontawesome:Regular.ArrowRightFromBracket }"
+                    Color="Black"
+            />
+        </MenuItem.IconImageSource>
+    </MenuItem>
+
+    
+    <MenuItem Text="Exit" x:Name="ExitMenuItem" Clicked="ExitMenuItem_Clicked" />
+
+</Shell>

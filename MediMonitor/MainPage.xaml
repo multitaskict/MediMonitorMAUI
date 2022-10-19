@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:MediMonitor.Resources"
+             xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome"
+             x:Class="MediMonitor.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="FontAwesomeThin"
+                                             Glyph="{ Static fontawesome:Regular.Qrcode }"
+                                             Color="{AppThemeBinding Light={ StaticResource BarTextLightColor }, Dark={ StaticResource BarTextDarkColor }}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView>
+
+        <VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,20,0,0">
+
+                <Label Text="{ Static resources:AppResources.App_Welcome}" HorizontalTextAlignment="Center" Margin="20,0,20,0" />
+
+                <Label Text="{ Static resources:AppResources.Instructions }" HorizontalTextAlignment="Center"  Margin="20,0,20,0" />
+               
+                <Button Text="{ Static resources:AppResources.Scan_QR }"
+                            x:Name="buttonScanQR"
+                            Clicked="buttonScanQR_Clicked"
+                            ContentLayout="Left, 5"
+                            Style="{ StaticResource DefaultButtonStyle }"
+                            IsVisible="{ OnPlatform True, WinUI=False }"
+                            >
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="FontAwesomeThin"
+                                             Glyph="{ Static fontawesome:Regular.Qrcode }"
+                                             Color="{AppThemeBinding Light={ StaticResource ButtonLightTextColor }, Dark={ StaticResource ButtonDarkTextColor }}" />
+                    </Button.ImageSource>
+                </Button>
+                <Button Text="{ Static resources:AppResources.Manual_Entry }"
+                            x:Name="buttonManualEntry"
+                            Clicked="buttonManualEntry_Clicked"
+                            ContentLayout="Left, 5"
+                            Style="{ StaticResource DefaultButtonStyle }">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="FontAwesomeLight"
+                                             Glyph="{ Static fontawesome:Regular.PenField }"
+                                             Color="{AppThemeBinding Light={ StaticResource ButtonLightTextColor }, Dark={ StaticResource ButtonDarkTextColor }}"
+                                             />
+                    </Button.ImageSource>
+                </Button>
+
+                <Button Text="{ Static resources:AppResources.App_Settings }" x:Name="buttonAppSettings" Clicked="buttonAppSettings_Clicked" ContentLayout="Left, 5" Style="{ StaticResource SecondaryButtonStyle }">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="FontAwesomeLight"
+                                             Glyph="{ Static fontawesome:Regular.Gears }"
+                                             Color="{AppThemeBinding Light={ StaticResource ButtonLightTextColor }, Dark={ StaticResource ButtonDarkTextColor }}" />
+                    </Button.ImageSource>
+                </Button>
+
+                <Button Text="{ Static resources:AppResources.PrivacyAgreement }" x:Name="buttonPrivacyAgreement" Clicked="buttonPrivacyAgreement_Clicked" Style="{ StaticResource SecondaryButtonStyle }" />
+
+            </VerticalStackLayout>
+
+
+            <StackLayout Margin="0,5,0,0">
+                <Label Text="{ Static resources:AppResources.Version}" x:Name="labelAppVersion" Style="{ StaticResource MutedTextStyle  }" />
+                <Label Text="" x:Name="labelVersion" Style="{ StaticResource MutedTextStyle }" />
+
+                <Label Text="{ Binding Copyright }" Style="{ StaticResource MutedTextStyle }"  />
+
+                <Label Text="TESTVERSION"  x:Name="lblTest" IsVisible="false" Style="{ StaticResource MutedTextStyle }"/>
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

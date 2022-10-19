@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Activate Survey" xml:space="preserve">
+    <value>Enquete Activeren</value>
+  </data>
+  <data name="App Settings" xml:space="preserve">
+    <value>App Instellingen</value>
+  </data>
+  <data name="App Updated" xml:space="preserve">
+    <value>Applicatie bijgewerkt</value>
+  </data>
+  <data name="App Welcome" xml:space="preserve">
+    <value>Omdat u medicatie van de Regenboog Apotheek afneemt, vragen wij u een korte dagelijkse enquete in te vullen.</value>
+  </data>
+  <data name="AppLoadError" xml:space="preserve">
+    <value>Kon de applicatie niet starten.</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Terug</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Confirm choice" xml:space="preserve">
+    <value>Bevestig keuze</value>
+  </data>
+  <data name="Current Surveys" xml:space="preserve">
+    <value>Huidige Enquetes</value>
+  </data>
+  <data name="Download data" xml:space="preserve">
+    <value>Gegevens downloaden</value>
+  </data>
+  <data name="Download data Details" xml:space="preserve">
+    <value>Download uw gegevens van deze app.</value>
+  </data>
+  <data name="Enter today's score" xml:space="preserve">
+    <value>Voer de score van vandaag in.</value>
+  </data>
+  <data name="Flash" xml:space="preserve">
+    <value>Flitser</value>
+  </data>
+  <data name="FullDateFormat" xml:space="preserve">
+    <value>{0:dddd dd MMMM yyyy}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Geschiedenis</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>Scan de QR Code die in de verpakking aanwezig is.</value>
+  </data>
+  <data name="LoadingApplication" xml:space="preserve">
+    <value>Bezig met laden van de applicatie...</value>
+  </data>
+  <data name="Manual Entry" xml:space="preserve">
+    <value>Handmatige Invoer</value>
+  </data>
+  <data name="Manual Entry Info" xml:space="preserve">
+    <value>Voer de tekst in die onder de QR Code staat.</value>
+  </data>
+  <data name="MediMonitor updated" xml:space="preserve">
+    <value>MediMonitor is bijgewerkt</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nee</value>
+  </data>
+  <data name="NoSessionEx" xml:space="preserve">
+    <value>Uw sessie is verlopen, log opnieuw in en probeer het opnieuw.</value>
+  </data>
+  <data name="Not connected" xml:space="preserve">
+    <value>U bent niet met het internet verbonden.
+Maak een verbinding en probeer het opnieuw!</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Previous Surveys" xml:space="preserve">
+    <value>Vorige Enquetes</value>
+  </data>
+  <data name="PrivacyAgreement" xml:space="preserve">
+    <value>Privacyverklaring</value>
+  </data>
+  <data name="PrivacyUrl" xml:space="preserve">
+    <value>https://www.multitaskict.nl/privacyverklaring-medimonitor/</value>
+  </data>
+  <data name="Remove all data" xml:space="preserve">
+    <value>Verwijder alle data</value>
+  </data>
+  <data name="Remove data" xml:space="preserve">
+    <value>Gegevens verwijderen</value>
+  </data>
+  <data name="Remove data Details" xml:space="preserve">
+    <value>Verwijder uw gegevens van deze app.</value>
+  </data>
+  <data name="Remove local data" xml:space="preserve">
+    <value>Verwijder lokale data</value>
+  </data>
+  <data name="RemoveDataError" xml:space="preserve">
+    <value>Kon data niet verwijderen door een serverfout.</value>
+  </data>
+  <data name="Retry" xml:space="preserve">
+    <value>Opnieuw proberen</value>
+  </data>
+  <data name="Scan QR" xml:space="preserve">
+    <value>Scan QR Code</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="Sign In Error" xml:space="preserve">
+    <value>Inlogfout</value>
+  </data>
+  <data name="Sign off" xml:space="preserve">
+    <value>Uitloggen</value>
+  </data>
+  <data name="Sign off Confirm" xml:space="preserve">
+    <value>Weet u zeker dat u uit wilt loggen?</value>
+  </data>
+  <data name="Sign Off Details" xml:space="preserve">
+    <value>Log uit van de applicatie.</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Verzenden</value>
+  </data>
+  <data name="Survey" xml:space="preserve">
+    <value>Enquete</value>
+  </data>
+  <data name="Survey Medication" xml:space="preserve">
+    <value>Enquete Medicatie</value>
+  </data>
+  <data name="Survey Question" xml:space="preserve">
+    <value>Hoe voelt u zich vandaag?</value>
+  </data>
+  <data name="Survey saved" xml:space="preserve">
+    <value>Uw enqueteantwoord is opgeslagen. Verbind met het internet om uw antwoord te synchroniseren.</value>
+  </data>
+  <data name="Survey Score Description" xml:space="preserve">
+    <value>Voer een lagere score in als u zich beter voelt.</value>
+  </data>
+  <data name="Survey Score Info" xml:space="preserve">
+    <value>Voer een score in tussen 1 en 7.</value>
+  </data>
+  <data name="Survey sent" xml:space="preserve">
+    <value>Uw enqueteantwoord is verzonden.</value>
+  </data>
+  <data name="Sync" xml:space="preserve">
+    <value>Synchroniseer</value>
+  </data>
+  <data name="Sync Complete" xml:space="preserve">
+    <value>Synchronisatie voltooid</value>
+  </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>Wilt u het opnieuw proberen?</value>
+  </data>
+  <data name="Unsupported QR" xml:space="preserve">
+    <value>QR Code niet ondersteund.</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Bijwerken</value>
+  </data>
+  <data name="Update Data" xml:space="preserve">
+    <value>Om verder te kunnen gaan moeten we de database updaten en moet u mogelijk opnieuw met uw QR code inloggen.</value>
+  </data>
+  <data name="User Settings" xml:space="preserve">
+    <value>Gebruikersinstellingen</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versie</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+</root>

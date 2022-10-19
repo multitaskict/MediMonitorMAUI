@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MediMonitor.Pages.LoadingPage"
+             xmlns:r="clr-namespace:MediMonitor.Resources">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <ActivityIndicator x:Name="aiLoader" Grid.Row="1" IsRunning="True" Margin="25" />
+
+        <Label x:Name="infoLabel" Grid.Row="2" HorizontalTextAlignment="Center" VerticalOptions="Center" Text="{ Static r:AppResources.LoadingApplication }" FontAttributes="Bold"  Margin="25" />
+
+        <StackLayout Orientation="Vertical" Grid.Row="3" IsVisible="false" x:Name="loadError" Margin="15,0,0,0" Spacing="25">
+            <Label x:Name="retryLabel" Text="{ Static r:AppResources.TryAgain }" HorizontalTextAlignment="Center" />
+            <Button x:Name="retryButton" Text="{ Static r:AppResources.Retry }"  Style="{ StaticResource DefaultButtonStyle }" Clicked="retryButton_Clicked" />
+
+            <Label x:Name="exceptionLabel" Text="" Style="{ StaticResource MutedTextStyle }" />
+        </StackLayout>
+
+    </Grid>
+</ContentPage>

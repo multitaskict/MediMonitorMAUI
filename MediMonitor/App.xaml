@@ -1,0 +1,117 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MediMonitor"
+             x:Class="MediMonitor.App">
+    <Application.Resources>
+        
+        <!-- Colors for Light mode -->
+        <Color x:Key="PrimaryButtonLightColor">#2A2AC0</Color>
+        <Color x:Key="SecondaryButtonLightColor">#58595B</Color>
+        <Color x:Key="ButtonLightTextColor">#FFF</Color>
+        <Color x:Key="ContentLightBackgroundColor">#EDF1FA</Color>
+        <Color x:Key="TextMutedLightColor">Gray</Color>
+
+        <Color x:Key="BarBackgroundLightColor">#FFF</Color>
+        <Color x:Key="BarTextLightColor">#181461</Color>
+
+        <Color x:Key="EntryDefaultLightColor">White</Color>
+        <Color x:Key="EntryCorrectLightColor">Green</Color>
+        <Color x:Key="EntryIncorrectLightColor">Orange</Color>
+
+        <Color x:Key="SubtitleLabelLightColor">#181461</Color>
+
+        <Color x:Key="UseSettingsDefaultLightColor">#2A2AC0</Color>
+        <Color x:Key="UseSettingsDangerLightColor">#d42836</Color>
+
+        <!-- Colors for Dark mode -->
+        <Color x:Key="PrimaryButtonDarkColor">#6060d6</Color>
+        <Color x:Key="SecondaryButtonDarkColor">#616469</Color>
+        <Color x:Key="ButtonDarkTextColor">#FFF</Color>
+        <Color x:Key="ContentDarkBackgroundColor">#000</Color>
+        <Color x:Key="TextMutedDarkColor">Gray</Color>
+
+        <Color x:Key="BarBackgroundDarkColor">#333</Color>
+        <Color x:Key="BarTextDarkColor">#E2E2E2</Color>
+
+        <Color x:Key="EntryDefaultDarkColor">White</Color>
+        <Color x:Key="EntryCorrectDarkColor">Green</Color>
+        <Color x:Key="EntryIncorrectDarkColor">Orange</Color>
+
+        <Color x:Key="SubtitleLabelDarkColor">#817be3</Color>
+        <Color x:Key="UseSettingsDefaultDarkColor">#4693FF</Color>
+        <Color x:Key="UseSettingsDangerDarkColor">#d42836</Color>
+
+        <Style x:Key="ContentPageStyle" TargetType="ContentPage">
+            <Setter Property="BackgroundColor"
+                    Value="{AppThemeBinding Light={StaticResource ContentLightBackgroundColor}, Dark={StaticResource ContentDarkBackgroundColor}}" />
+        </Style>
+
+        <Style x:Key="NavigationPageStyle" TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor"
+                    Value="{ AppThemeBinding Light={StaticResource BarBackgroundLightColor}, Dark={StaticResource BarBackgroundDarkColor } }" />
+
+            <Setter Property="BarTextColor"
+                    Value="{ AppThemeBinding Light={StaticResource BarTextLightColor }, Dark={StaticResource BarTextDarkColor} }" />
+        </Style>
+
+        <Style x:Key="DefaultButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="{ AppThemeBinding Light={StaticResource PrimaryButtonLightColor}, Dark={StaticResource PrimaryButtonDarkColor} }" />
+
+            <Setter Property="TextColor"
+                    Value="{ AppThemeBinding Light={ StaticResource ButtonLightTextColor}, Dark={StaticResource ButtonDarkTextColor}}" />
+
+            <Setter Property="Margin"
+                    Value="50,10,50,10" />
+        </Style>
+
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="{ AppThemeBinding Light={StaticResource SecondaryButtonLightColor}, Dark={StaticResource SecondaryButtonDarkColor} }" />
+
+            <Setter Property="TextColor"
+                    Value="{ AppThemeBinding Light={ StaticResource ButtonLightTextColor}, Dark={StaticResource ButtonDarkTextColor }}" />
+
+            <Setter Property="Margin"
+                    Value="50,10,50,10" />
+        </Style>
+
+        <Style x:Key="MutedTextStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource  TextMutedLightColor}, Dark={ StaticResource TextMutedDarkColor}}" />
+        </Style>
+
+        <Style TargetType="Label" x:Key="SubTitleStyle">
+            <Setter Property="TextColor"
+                    Value="{ AppThemeBinding Light={ StaticResource SubtitleLabelLightColor }, Dark={StaticResource SubtitleLabelDarkColor }}" />
+        </Style>
+
+        <Style TargetType="Entry" Class="numberEntry">
+            <Setter Property="BackgroundColor"
+                    Value="{ AppThemeBinding Light={StaticResource EntryDefaultLightColor }, Dark={ StaticResource EntryDefaultDarkColor }}" />
+            <Setter Property="TextColor" Value="White" />
+
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="Entry" Class="numberEntryCorrect">
+            <Setter Property="BackgroundColor"
+                    Value="{ AppThemeBinding Light={StaticResource EntryCorrectLightColor }, Dark={ StaticResource EntryCorrectDarkColor }}" />
+            <Setter Property="TextColor" Value="White" />
+
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="Entry" Class="numberEntryError">
+            <Setter Property="BackgroundColor"
+                    Value="{ AppThemeBinding Light={StaticResource EntryIncorrectLightColor }, Dark={ StaticResource EntryIncorrectDarkColor }}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+
+    </Application.Resources>
+</Application>
