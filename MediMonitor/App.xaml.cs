@@ -36,14 +36,10 @@ public partial class App : Application
         LoadApp();
 
         var window = base.CreateWindow(activationState);
-        //
-        //window.Created += Window_Created;
-        //
         return window;
     }
 
-
-    private async void LoadApp(string requestPage = "survey")
+    private static async void LoadApp(string requestPage = "survey")
     {
         Preferences.Remove("Sleep-Page");
 
@@ -92,7 +88,6 @@ public partial class App : Application
                                 Preferences.Remove("Session_Cookie");
 
                                 await Shell.Current.GoToAsync("//SignIn", true);
-
                                 return;
                             }
                         }
@@ -100,10 +95,10 @@ public partial class App : Application
 
                     await Shell.Current.GoToAsync("//Main/Survey", true);
                 }
-            }
-            else
-            {
-                await Shell.Current.GoToAsync("//SignIn", true);
+                else
+                {
+                    await Shell.Current.GoToAsync("//SignIn", true);
+                }
             }
         }
         catch (Exception ex)
@@ -115,9 +110,15 @@ public partial class App : Application
         }
     }
 
+    internal static async void Relaunch()
+    {
+        LoadApp();
+    }
+
     public static ApplicationContext ApplicationContext { get; private set; }
     
     public static AppData Database { get; private set; }
 
-    private static string url = Connection.TestUrl;
+    private static readonly string url = Connection.TestUrl;
+
 }

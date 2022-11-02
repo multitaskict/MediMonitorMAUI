@@ -2,11 +2,47 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediMonitor.Pages.SettingsPage"
+             xmlns:resources="clr-namespace:MediMonitor.Resources"
+             xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome" 
              Title="SettingsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.IconImageSource>
+        <FontImageSource FontFamily="FontAwesomeLight" Glyph="{ Static fontawesome:Regular.Gears }" />
+    </ContentPage.IconImageSource>
+    <ContentPage.Content>
+        <TableView x:Name="tableSettings" Intent="Settings">
+            <TableSection Title="{ Static resources:AppResources.User_Settings }">
+
+                <TextCell Text="{ Static resources:AppResources.Sign_off }"
+                          Detail="{ Static resources:AppResources.Sign_Off_Details }"
+                          x:Name="signOffCell"
+                          TextColor="{ AppThemeBinding Light={StaticResource UseSettingsDefaultLightColor}, Dark={StaticResource UseSettingsDefaultDarkColor } }"
+                          />
+
+                <TextCell Text="{ Static resources:AppResources.Download_data }"
+                          Detail="{ Static resources:AppResources.Download_data_Details }"
+                          x:Name="downloadDataCell"
+                          TextColor="{ AppThemeBinding Light={StaticResource UseSettingsDefaultLightColor}, Dark={StaticResource UseSettingsDefaultDarkColor } }"
+                          />
+
+                <TextCell Text="{ Static resources:AppResources.Remove_data }"
+                          Detail="{ Static resources:AppResources.Remove_data_Details }"
+                          x:Name="verwijderenCell"
+                          
+                          TextColor="{ AppThemeBinding Light={StaticResource UseSettingsDangerLightColor }, Dark={StaticResource UseSettingsDangerDarkColor } }"/>
+            </TableSection>
+
+            <TableSection Title="{ Static resources:AppResources.App_Settings }">
+
+                <ImageCell Text="{ Static resources:AppResources.App_Settings }" x:Name="appSettingsCell">
+                    <ImageCell.ImageSource>
+                        <FontImageSource FontFamily="FontAwesomeLight" Glyph="{ Static fontawesome:Regular.Gears }" />
+                    </ImageCell.ImageSource>
+                </ImageCell>
+
+                <TextCell Text="{Static resources:AppResources.PrivacyAgreement}" x:Name="privacyCell"  />
+
+            </TableSection>
+
+        </TableView>
+    </ContentPage.Content>
 </ContentPage>

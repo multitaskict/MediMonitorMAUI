@@ -44,6 +44,10 @@
 
     </FlyoutItem>
 
+    <FlyoutItem Route="Settings" Title="Settings" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent x:Name="ShellSettings" Title="Settings" ContentTemplate="{ DataTemplate pages:SettingsPage }" />
+    </FlyoutItem>
+
     <MenuItem
         Text="Sign Out"
         Clicked="MenuItem_Clicked"

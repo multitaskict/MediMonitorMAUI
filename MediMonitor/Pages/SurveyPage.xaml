@@ -2,11 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediMonitor.Pages.SurveyPage"
+             xmlns:resources="clr-namespace:MediMonitor.Resources"
+             xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome" 
+             xmlns:viewmodels="clr-namespace:MediMonitor.ViewModels" 
              Title="SurveyPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <ScrollView>
+            <Grid RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Padding="0,30,0,10" Grid.Row="0">
+                    <Label HorizontalTextAlignment="Center" Style="{ StaticResource SubTitleStyle }" Text="{ Binding DateTime, StringFormat={Static resources:AppResources.FullDateFormat}}" />
+                </StackLayout>
+
+                <Label Text="{ Static resources:AppResources.Survey_Question }" HorizontalTextAlignment="Center" FontAttributes="Bold" Grid.Row="1" />
+                <Label Text="{Static resources:AppResources.Survey_Score_Info }" HorizontalTextAlignment="Center" Grid.Row="2" />
+
+                <Entry x:Name="entryScore" Text="{ Binding Path=Score }" Margin="50,0,50,0" MaxLength="1" IsTextPredictionEnabled="False"  Grid.Row="3" Keyboard="Numeric" ClearButtonVisibility="WhileEditing" StyleClass="numberEntry" />
+
+                <Label Text="{Static resources:AppResources.Survey_Score_Description }" HorizontalTextAlignment="Center" Grid.Row="4" />
+
+
+                <Button Text="{ Static resources:AppResources.Confirm_choice }"
+                    Style="{ StaticResource DefaultButtonStyle }"
+                    x:Name="submitButton"
+                    Clicked="submitButton_Clicked"
+                    Grid.Row="5">
+                </Button>
+            </Grid>
+
+
+
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>

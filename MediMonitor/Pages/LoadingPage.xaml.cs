@@ -23,6 +23,6 @@ public partial class LoadingPage : ContentPage
 
     private void retryButton_Clicked(object sender, EventArgs e)
 	{
-
+        App.Relaunch();
 	}
 }

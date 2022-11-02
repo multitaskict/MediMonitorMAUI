@@ -2,11 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediMonitor.Pages.HistoryPage"
+             xmlns:resources="clr-namespace:MediMonitor.Resources"
+             xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome" 
              Title="History">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.IconImageSource>
+        <FontImageSource FontFamily="FontAwesomeLight" Glyph="{ Static fontawesome:Regular.Calendar }" />
+    </ContentPage.IconImageSource>
+
+    <ContentPage.Content>
+
+        <TableView Intent="Menu" x:Name="tableSurveys">
+
+            <TableSection Title="{Static resources:AppResources.Current_Surveys }" x:Name="tableSectionCurrentSurveys">
+            </TableSection>
+
+            <TableSection  Title="{ Static resources:AppResources.Previous_Surveys }" x:Name="tableSectionSurveys">
+            </TableSection>
+
+        </TableView>
+
+    </ContentPage.Content>
 </ContentPage>
