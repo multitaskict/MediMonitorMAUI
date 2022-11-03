@@ -6,7 +6,10 @@ using MediMonitor.Service.Web;
 
 using System.Net;
 
+using FileSystem = Microsoft.Maui.Storage.FileSystem;
+
 namespace MediMonitor;
+
 
 public partial class App : Application
 {
@@ -21,7 +24,7 @@ public partial class App : Application
 #endif 
 
         ApplicationContext = new ApplicationContext(VersionTracking.CurrentVersion, appVersionType, "Default");
-        Database = new AppData(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MediMonitor.db3"), "??");
+        Database = new AppData(Path.Combine(FileSystem.AppDataDirectory, "MediMonitor.db3"), "??");
 
         MainPage = new AppShell();
         
@@ -31,7 +34,7 @@ public partial class App : Application
         base.OnStart();
     }
 
-    protected override Window CreateWindow(IActivationState activationState)
+        protected override Window CreateWindow(IActivationState activationState)
     {
         LoadApp();
 
@@ -65,6 +68,12 @@ public partial class App : Application
                      };
 
                     var user = await userService.GetById(userId);
+                    if(user == null)
+                    {
+                        GoToLogin();
+                        return;
+                    }
+
                     ApplicationContext.User = user;
 
                     if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -83,11 +92,7 @@ public partial class App : Application
                             }
                             catch (NoSessionException)
                             {
-                                Preferences.Remove("User_Id");
-
-                                Preferences.Remove("Session_Cookie");
-
-                                await Shell.Current.GoToAsync("//SignIn", true);
+                                GoToLogin();
                                 return;
                             }
                         }
@@ -110,7 +115,17 @@ public partial class App : Application
         }
     }
 
-    internal static async void Relaunch()
+    private static async void GoToLogin()
+    {
+        Preferences.Remove("User_Id");
+
+        Preferences.Remove("Session_Cookie");
+
+        await Shell.Current.GoToAsync("//SignIn", true);
+
+    }
+
+    internal static void Relaunch()
     {
         LoadApp();
     }

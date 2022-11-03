@@ -35,7 +35,7 @@
 
                 <ImageCell Text="{ Static resources:AppResources.App_Settings }" x:Name="appSettingsCell">
                     <ImageCell.ImageSource>
-                        <FontImageSource FontFamily="FontAwesomeLight" Glyph="{ Static fontawesome:Regular.Gears }" />
+                        <FontImageSource FontFamily="FontAwesomeLight" Glyph="{ Static fontawesome:Regular.Gears }" Color="Black" />
                     </ImageCell.ImageSource>
                 </ImageCell>
 
