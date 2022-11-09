@@ -39,9 +39,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-
-		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
@@ -55,6 +52,10 @@
 	  <None Remove="Resources\Fonts\FA6Pro-Regular-400.otf" />
 	  <None Remove="Resources\Fonts\FA6Pro-Solid-900.otf" />
 	  <None Remove="Resources\Fonts\FA6Pro-Thin-100.otf" />
+	  <None Remove="SQLitePCLRaw.provider.dynamic_cdecl" />
+	  <None Remove="SQLitePCLRaw.provider.sqlite3" />
+	  <None Remove="SQLitePCLRaw.core" />
+	  <None Remove="SQLitePCLExRaw.bundle_green" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -87,8 +88,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	  <PackageReference Include="ZXing.Net.Maui" Version="0.1.0-preview.7" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLExRaw.bundle_green" Version="2.1.1-pre20220801061241" />
 	</ItemGroup>
 
 	<ItemGroup>

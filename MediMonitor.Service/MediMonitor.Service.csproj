@@ -12,9 +12,16 @@
     <None Remove="Interfaces\" />
     <None Remove="Database\" />
     <None Remove="Exceptions\" />
+    <None Remove="SQLitePCLRaw.provider.dynamic_cdecl" />
+    <None Remove="SQLitePCLRaw.provider.sqlite3" />
+    <None Remove="SQLitePCLRaw.core" />
+    <None Remove="SQLitePCLExRaw.bundle_green" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
+    <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
+    <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
+    <PackageReference Include="SQLitePCLExRaw.bundle_green" Version="2.1.1-pre20220801061241" />
   </ItemGroup>
 </Project>

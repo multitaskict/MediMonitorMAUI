@@ -24,7 +24,12 @@ public partial class App : Application
 #endif 
 
         ApplicationContext = new ApplicationContext(VersionTracking.CurrentVersion, appVersionType, "Default");
-        Database = new AppData(Path.Combine(FileSystem.AppDataDirectory, "MediMonitor.db3"), "??");
+
+        var databaseFolder = Path.Combine(FileSystem.AppDataDirectory, "MediMonitor", "Database");
+        if (!Directory.Exists(databaseFolder))
+            Directory.CreateDirectory(databaseFolder);
+
+        Database = new AppData(Path.Combine(databaseFolder, "MediMonitor.db3"), "??");
 
         MainPage = new AppShell();
         
