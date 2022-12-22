@@ -160,6 +160,24 @@ namespace MediMonitor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable notifications.
+        /// </summary>
+        internal static string Enable_Notifications {
+            get {
+                return ResourceManager.GetString("Enable Notifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Notifications to get a Daily push message at the time to take the medicine..
+        /// </summary>
+        internal static string Enable_Notifications_Info {
+            get {
+                return ResourceManager.GetString("Enable Notifications Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter today&apos;s score..
         /// </summary>
         internal static string Enter_today_s_score {
@@ -336,6 +354,15 @@ namespace MediMonitor.Resources {
         internal static string Remove_local_data {
             get {
                 return ResourceManager.GetString("Remove local data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove notifications.
+        /// </summary>
+        internal static string Remove_Notifications {
+            get {
+                return ResourceManager.GetString("Remove Notifications", resourceCulture);
             }
         }
         

@@ -150,6 +150,12 @@
   <data name="Download data Details" xml:space="preserve">
     <value>Download your data from this app.</value>
   </data>
+  <data name="Enable Notifications" xml:space="preserve">
+    <value>Enable notifications</value>
+  </data>
+  <data name="Enable Notifications Info" xml:space="preserve">
+    <value>Enable Notifications to get a Daily push message at the time to take the medicine.</value>
+  </data>
   <data name="Enter today's score" xml:space="preserve">
     <value>Enter today's score.</value>
   </data>
@@ -209,6 +215,9 @@
   </data>
   <data name="Remove local data" xml:space="preserve">
     <value>Remove local data</value>
+  </data>
+  <data name="Remove Notifications" xml:space="preserve">
+    <value>Remove notifications</value>
   </data>
   <data name="RemoveDataError" xml:space="preserve">
     <value>Could not remove data because of a server error.</value>

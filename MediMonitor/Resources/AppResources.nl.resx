@@ -150,6 +150,12 @@
   <data name="Download data Details" xml:space="preserve">
     <value>Download uw gegevens van deze app.</value>
   </data>
+  <data name="Enable Notifications" xml:space="preserve">
+    <value>Meldingen inschakelen</value>
+  </data>
+  <data name="Enable Notifications Info" xml:space="preserve">
+    <value>Schakel notificaties in om dagelijks een melding te krijgen om de medicatie in te nemen.</value>
+  </data>
   <data name="Enter today's score" xml:space="preserve">
     <value>Voer de score van vandaag in.</value>
   </data>
@@ -210,6 +216,9 @@ Maak een verbinding en probeer het opnieuw!</value>
   </data>
   <data name="Remove local data" xml:space="preserve">
     <value>Verwijder lokale data</value>
+  </data>
+  <data name="Remove Notifications" xml:space="preserve">
+    <value>Meldingen verwijderen</value>
   </data>
   <data name="RemoveDataError" xml:space="preserve">
     <value>Kon data niet verwijderen door een serverfout.</value>

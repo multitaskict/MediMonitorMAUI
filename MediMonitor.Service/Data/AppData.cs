@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -21,8 +20,6 @@ namespace MediMonitor.Service.Data
         private SQLiteAsyncConnection database;
 
         private readonly string appVersion;
-
-        public bool Outdated { get; private set; }
 
         /// <summary>
         /// Get the path of the database file.
@@ -48,27 +45,18 @@ namespace MediMonitor.Service.Data
         /// <exception cref="NewVersionException">The application has been updated.</exception>
         public async Task Init()
         {
-            try
+            database = new SQLiteAsyncConnection(new SQLiteConnectionString(FilePath, true));
+
+            await CreateTables();
+
+            var lastSavedVersion = LatestSavedVersion();
+            if (lastSavedVersion == string.Empty)
             {
-                database = new SQLiteAsyncConnection(FilePath);
-                
-
-                await CreateTables();
-
-                var lastSavedVersion = LatestSavedVersion();
-                if (lastSavedVersion == string.Empty)
-                {
-                    await database.InsertAsync(new AppVersion { Version = appVersion });
-                    Outdated = false;
-                }
-                else if (lastSavedVersion != appVersion)
-                {
-                    Outdated = true;
-                }
+                await database.InsertAsync(new AppVersion { Version = appVersion });
             }
-            catch (Exception ex)
+            else if (lastSavedVersion != appVersion)
             {
-
+                await database.InsertAsync(new AppVersion { Version = appVersion });
             }
         }
 
@@ -86,7 +74,6 @@ namespace MediMonitor.Service.Data
             {
                 var task = (Task)createTable.Invoke(database, new object[] { type, CreateFlags.AllImplicit });
                 await task;
-
             }
         }
 

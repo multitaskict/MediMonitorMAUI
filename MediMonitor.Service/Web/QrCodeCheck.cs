@@ -91,7 +91,7 @@ namespace MediMonitor.Service.Web
             //C123
             var ranndomKeyNumber = RandomKey.Substring(1, 2).ToCharArray().Select(n => char.GetNumericValue(n)).Sum();
 
-            if (!UserKey.StartsWith("A") && userKeyNumber + medKeyNumber + ranndomKeyNumber == 0)
+            if (!(UserKey.StartsWith("T")) && userKeyNumber + medKeyNumber + ranndomKeyNumber == 0)
                 throw new QrCodeException("QrFormatEx", "Code cannot be empty");
 
             return (int)(userKeyNumber + medKeyNumber + ranndomKeyNumber) % 10;

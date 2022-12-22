@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MediMonitor.Service.Models
+namespace MediMonitor.Service.ApiModels
 {
     public class MedicijnVerstrekkingContextModel
     {

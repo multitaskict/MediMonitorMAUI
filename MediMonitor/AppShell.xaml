@@ -32,6 +32,16 @@
             </ShellContent.Icon>
         </ShellContent>
 
+        <ShellContent x:Name="shellMedication" Route="Medication" Title="Medication" ContentTemplate="{ DataTemplate pages:MedicationPage }">
+            <ShellContent.Icon>
+                <FontImageSource 
+                    FontFamily="FontAwesomeLight"
+                    Glyph="{ Static fontawesome:Regular.PrescriptionBottle }"
+                    Color="Black"
+                    />
+            </ShellContent.Icon>
+        </ShellContent>
+
         <ShellContent Route="History" Title="History" ContentTemplate="{ DataTemplate pages:HistoryPage }">
             <ShellContent.Icon>
                 <FontImageSource

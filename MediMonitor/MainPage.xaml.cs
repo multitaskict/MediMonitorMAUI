@@ -116,6 +116,11 @@ public partial class MainPage : ContentPage
     {
         try
         {
+            if (code.Equals("demo", StringComparison.CurrentCultureIgnoreCase))
+            {
+                code = "T00000000-M0000-C000";
+            }
+
             var qrCodeCheck = new QrCodeCheck(code);
             if (!qrCodeCheck.IsValid())
             {
@@ -161,7 +166,6 @@ public partial class MainPage : ContentPage
             throw new Exception(AppResources.ResourceManager.GetString(ex.Message), ex);
         }
     }
-
 
     private void buttonAppSettings_Clicked(object sender, EventArgs e)
     {

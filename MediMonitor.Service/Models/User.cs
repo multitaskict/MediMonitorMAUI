@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MediMonitor.Service.Interfaces;
+﻿using MediMonitor.Service.Interfaces;
 using SQLite;
 
 namespace MediMonitor.Service.Models
@@ -24,6 +22,12 @@ namespace MediMonitor.Service.Models
         /// The last name of the user.
         /// </summary>
         public string LastName { get; set; }
+
+
+        /// <summary>
+        /// Is the user a demo account?
+        /// </summary>
+        public bool Demo { get; set; }
 
 
         public override string ToString()

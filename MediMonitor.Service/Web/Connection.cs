@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using MediMonitor.Service.ApiModels;
 using MediMonitor.Service.Data;
 using MediMonitor.Service.Exceptions;
 using MediMonitor.Service.Models;
@@ -159,6 +159,13 @@ namespace MediMonitor.Service.Web
             return url;
         }
 
+        /// <summary>
+        /// Prepare the URL you want to call.
+        /// </summary>
+        /// <param name="controller">The name of the controller</param>
+        /// <param name="action">The name of the action</param>
+        /// <param name="urlParams">The optional parameters you want to pass.</param>
+        /// <returns>The url</returns>
         public string PrepareUrl(string controller, string action, IDictionary<string, string> urlParams = null)
         {
             var paramsUrlPart = urlParams != null ? "?" + string.Join("&", urlParams.Select(x => $"{x.Key}={x.Value}")) : "";
@@ -219,7 +226,9 @@ namespace MediMonitor.Service.Web
                 addCookies(request.CookieContainer.GetCookies(medicijnVerstrekking.UriUrl));
 
                 var userService = new UserService(appData);
-                var user = await userService.GetByPatientIdAsync(response.Data[0].PatientId) ?? new User {  FirstName = response.Data[0].FirstName, LastName = response.Data[0].LastName, PatientId = response.Data[0].PatientId };
+                var user = await userService.GetByPatientIdAsync(response.Data[0].PatientId) ??
+                    new User {  FirstName = response.Data[0].FirstName, LastName = response.Data[0].LastName, PatientId = response.Data[0].PatientId };
+
                 if (user.Id < 1)
                     await appData.SaveAsync(user);
 
@@ -313,6 +322,113 @@ namespace MediMonitor.Service.Web
             }
 
             return response.Success;
+        }
+
+        public async Task<IEnumerable<Medicijn>> GetMedicijnAsync(MedicijnVerstrekking medicijnVerstrekking, AppData appData)
+        {
+            var getRequest = CreateRequest(medicijnVerstrekking, PrepareUrl("Survey", "GetMedicijnen"));
+            var result = await GetResponseJsonAsync<ResultViewModel<AppMedicijn>>(getRequest);
+
+            if (!result.Success && result.Error == "NoSession")
+            {
+                throw new NoSessionException(result);
+            }
+            else if (!result.Success)
+            {
+                throw new Exception(result.Error);
+            }
+            else
+            {
+                var list = new List<Medicijn>();
+                foreach (var m in result.Data)
+                {
+                    var medicijn = await appData.TableQuery<Medicijn>().Where(mx => mx.ApiId == m.Id).FirstOrDefaultAsync() ??
+                            new Medicijn
+                            {
+                                ApiId = m.Id
+                            };
+
+
+                    medicijn.EngelseNaam = m.EngelseNaam;
+                    medicijn.Naam = m.Naam;
+
+                    await appData.SaveAsync(medicijn);
+
+                    list.Add(medicijn);
+                }
+
+                return list;
+            }
+
+        }
+
+        public async Task<IEnumerable<Medicatie>> GetMedicatie(MedicijnVerstrekking medicijnVerstrekking, AppData appData, User user)
+        {
+            var getRequest = CreateRequest(medicijnVerstrekking, PrepareUrl("Survey", "GetMedicatie"));
+            var result = await GetResponseJsonAsync<ResultViewModel<AppMedicatieModel>>(getRequest);
+            var list = new List<Medicatie>();
+
+            if (result.Success)
+            {
+                foreach (var item in result.Data)
+                {
+                    var medicatie =
+                        await appData.TableQuery<Medicatie>().FirstOrDefaultAsync(m => m.ApiId == item.Id) ??
+                        new Medicatie
+                        {
+                            ApiId = item.Id,
+                            UserId = user.Id,
+                            MedicijnId = item.MedicijnId,
+                            AanvraagId = item.AanvraagId,
+                            PatientId = item.PatientId
+                        };
+
+                    medicatie.AfbouwPeriode = item.AfbouwPeriode;
+                    medicatie.MedicatieVerpakking = item.MedicatieVerpakking;
+
+                    await appData.SaveAsync(medicatie);
+
+                    var innamemomenten = await appData.TableQuery<Innamemoment>().Where(im => im.MedicatieId == medicatie.Id).ToArrayAsync();
+                    foreach (var im in innamemomenten)
+                    {
+                        if (im.ApiId.HasValue && !item.Innamemomenten.Select(ix => ix.Id).Contains(im.ApiId.Value))
+                        {
+                            //Innamemoment has been removed.
+                            await appData.DeleteAsync(im);
+                        }
+                    }
+
+                    foreach (var im in item.Innamemomenten)
+                    {
+                        var innamemoment = await appData.TableQuery<Innamemoment>().FirstOrDefaultAsync(i => i.ApiId == im.Id) ??
+                            new Innamemoment { ApiId = im.Id, MedicatieId = medicatie.Id, Type = im.Type };
+
+                        innamemoment.Tijdstip = im.Tijdstip;
+                        innamemoment.Notification = im.Tijdstip;
+                        innamemoment.Opmerking = im.Opmerking;
+                        innamemoment.InnameHoeveelheid = im.InnameHoeveelheid;
+
+                        await appData.SaveAsync(innamemoment);
+                    }
+
+                    list.Add(medicatie);
+                }
+
+                var ids = list.Select(l => l.ApiId).ToArray();
+                var toRemove = await appData.TableQuery<Medicatie>().Where(m => m.UserId == user.Id && m.ApiId != null && !ids.Contains(m.ApiId)).ToArrayAsync();
+
+                foreach (var item in toRemove)
+                {
+                    await appData.DeleteAsync(item);
+                }
+
+                return list;
+            }
+            else
+            {
+                throw new Exception(result.Error);
+            }
+
         }
 
         /// <summary>

@@ -16,10 +16,6 @@ namespace MediMonitor.Service.Web
             this.medicijnVerstrekking = medicijnVerstrekking;
         }
 
-        public async Task<Sync> SyncAsync(User user, IEnumerable<Survey> surveys)
-        {
-            throw new NotImplementedException();
-        }
 	}
 }
 
