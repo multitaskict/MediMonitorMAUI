@@ -141,8 +141,23 @@
   <data name="Confirm choice" xml:space="preserve">
     <value>Bevestig keuze</value>
   </data>
+  <data name="Could Not Set Reminder" xml:space="preserve">
+    <value>Kon meldingen niet instellen, controleer of deze ingeschakeld zijn</value>
+  </data>
   <data name="Current Surveys" xml:space="preserve">
     <value>Huidige Enquetes</value>
+  </data>
+  <data name="Daily Notification At" xml:space="preserve">
+    <value>Dagelijkse notificatie om:</value>
+  </data>
+  <data name="DailyIntake" xml:space="preserve">
+    <value>Dagelijks innemen om %t</value>
+  </data>
+  <data name="DailyIntakeDays" xml:space="preserve">
+    <value>Dagelijks innemen om %t voor %d dagen</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>voor %d dagen</value>
   </data>
   <data name="Download data" xml:space="preserve">
     <value>Gegevens downloaden</value>
@@ -159,6 +174,9 @@
   <data name="Enter today's score" xml:space="preserve">
     <value>Voer de score van vandaag in.</value>
   </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Afsluiten</value>
+  </data>
   <data name="Flash" xml:space="preserve">
     <value>Flitser</value>
   </data>
@@ -167,6 +185,9 @@
   </data>
   <data name="History" xml:space="preserve">
     <value>Geschiedenis</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Thuis</value>
   </data>
   <data name="Instructions" xml:space="preserve">
     <value>Scan de QR Code die in de verpakking aanwezig is.</value>
@@ -180,6 +201,18 @@
   <data name="Manual Entry Info" xml:space="preserve">
     <value>Voer de tekst in die onder de QR Code staat.</value>
   </data>
+  <data name="Medication" xml:space="preserve">
+    <value>Medicatie</value>
+  </data>
+  <data name="Medication reminder" xml:space="preserve">
+    <value>Medicatie herinnering</value>
+  </data>
+  <data name="Medicationmessages" xml:space="preserve">
+    <value>Medicatiemeldingen</value>
+  </data>
+  <data name="Medicine" xml:space="preserve">
+    <value>Medicijn</value>
+  </data>
   <data name="MediMonitor updated" xml:space="preserve">
     <value>MediMonitor is bijgewerkt</value>
   </data>
@@ -192,6 +225,12 @@
   <data name="Not connected" xml:space="preserve">
     <value>U bent niet met het internet verbonden.
 Maak een verbinding en probeer het opnieuw!</value>
+  </data>
+  <data name="Notifications Enabled For" xml:space="preserve">
+    <value>Meldingen ingeschakeld voor</value>
+  </data>
+  <data name="Notifications removed" xml:space="preserve">
+    <value>Alle toekomstige meldingen zijn verwijderd.</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
@@ -268,11 +307,20 @@ Maak een verbinding en probeer het opnieuw!</value>
   <data name="Survey sent" xml:space="preserve">
     <value>Uw enqueteantwoord is verzonden.</value>
   </data>
+  <data name="Switch Language" xml:space="preserve">
+    <value>Wissel van taal?</value>
+  </data>
   <data name="Sync" xml:space="preserve">
     <value>Synchroniseer</value>
   </data>
   <data name="Sync Complete" xml:space="preserve">
     <value>Synchronisatie voltooid</value>
+  </data>
+  <data name="Take Medication Notification" xml:space="preserve">
+    <value>Neem uw medicatie voor</value>
+  </data>
+  <data name="TimePickerFormat" xml:space="preserve">
+    <value>HH:mm</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Wilt u het opnieuw proberen?</value>

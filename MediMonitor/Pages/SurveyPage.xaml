@@ -5,7 +5,8 @@
              xmlns:resources="clr-namespace:MediMonitor.Resources"
              xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome" 
              xmlns:viewmodels="clr-namespace:MediMonitor.ViewModels" 
-             Title="SurveyPage">
+             Style="{ StaticResource ContentPageStyle }"
+             Title="{ Static resources:AppResources.Survey }">
     <VerticalStackLayout>
         <ScrollView>
             <Grid RowSpacing="15">

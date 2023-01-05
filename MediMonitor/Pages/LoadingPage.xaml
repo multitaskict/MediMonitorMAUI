@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediMonitor.Pages.LoadingPage"
              xmlns:r="clr-namespace:MediMonitor.Resources">
-
     <Grid>
 
         <Grid.RowDefinitions>

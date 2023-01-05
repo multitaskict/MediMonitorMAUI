@@ -4,7 +4,8 @@
              x:Class="MediMonitor.Pages.MedicationPage"
              xmlns:resources="clr-namespace:MediMonitor.Resources"
              xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome" 
-             Title="MedicationPage">
+             Style="{ StaticResource ContentPageStyle }"
+             Title="{ Static resources:AppResources.Medication }">
     <VerticalStackLayout>
 
 

@@ -1,14 +1,17 @@
+using MediMonitor.Helpers;
 using MediMonitor.Resources;
 using MediMonitor.Service.Exceptions;
 using MediMonitor.Service.Models;
+
+using System.Globalization;
 
 namespace MediMonitor.Pages;
 
 public partial class SettingsPage : ContentPage
 {
-	public SettingsPage()
-	{
-		InitializeComponent();
+    public SettingsPage()
+    {
+        InitializeComponent();
 
         signOffCell.Command = new Command(SignOut);
         downloadDataCell.Command = new Command(DownloadData);
@@ -17,9 +20,27 @@ public partial class SettingsPage : ContentPage
         appSettingsCell.Command = new Command(OpenAppSettings);
 
         privacyCell.Command = new Command(OpenPrivacyAgreement);
+
+        changeLanguageSetting.Command = new Command(SwitchLanguage);
     }
 
-    public async void SignOut()
+    private async void SwitchLanguage()
+    {
+        var languages = new[] { CultureInfo.GetCultureInfo("en"), CultureInfo.GetCultureInfo("nl") };
+
+        var selection = await DisplayActionSheet(AppResources.Switch_Language, AppResources.Cancel, null, languages.Select(x => x.NativeName).ToArray());
+
+        if (selection != null && selection != AppResources.Cancel)
+        {
+            var culture = languages.Where(ci => ci.NativeName == selection).Single();
+            LanguageSettingHelper.SetLanguage(culture);
+
+            Application.Current.MainPage = new AppShell();
+            App.Relaunch();
+        }
+    }
+
+    private async void SignOut()
     {
         if (await DisplayAlert(AppResources.Sign_off, AppResources.Sign_off_Confirm, AppResources.Yes, AppResources.No))
         {
@@ -31,7 +52,7 @@ public partial class SettingsPage : ContentPage
         }
     }
 
-    public async void DownloadData()
+    public static async void DownloadData()
     {
         //Get the id of the current user
         var userId = Preferences.Get("User_Id", -1);
@@ -127,7 +148,7 @@ public partial class SettingsPage : ContentPage
 
             Preferences.Remove("User_Id");
             Preferences.Remove("Session_Cookie");
-            
+
             await Shell.Current.GoToAsync("//SignIn", true);
         }
     }

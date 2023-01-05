@@ -1,4 +1,5 @@
 ﻿using MediMonitor.Enums;
+using MediMonitor.Helpers;
 using MediMonitor.Pages;
 using MediMonitor.Service.Data;
 using MediMonitor.Service.Exceptions;
@@ -29,6 +30,9 @@ public partial class App : Application
             Directory.CreateDirectory(databaseFolder);
 
         Database = new AppData(Path.Combine(databaseFolder, "MediMonitor.db3"), "??");
+
+        LanguageSettingHelper.SetSystemLanguage();
+        LanguageSettingHelper.SetLanguage();
 
         MainPage = new AppShell();
 

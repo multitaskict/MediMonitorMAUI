@@ -4,14 +4,15 @@
              x:Class="MediMonitor.Pages.HistoryPage"
              xmlns:resources="clr-namespace:MediMonitor.Resources"
              xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome" 
-             Title="History">
+             Style="{ StaticResource ContentPageStyle }"
+             Title="{ Static resources:AppResources.History }">
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="FontAwesomeLight" Glyph="{ Static fontawesome:Regular.Calendar }" />
     </ContentPage.IconImageSource>
 
     <ContentPage.Content>
 
-        <TableView Intent="Menu" x:Name="tableSurveys">
+        <TableView Intent="Menu" x:Name="tableSurveys" Margin="15,0,15,0">
 
             <TableSection Title="{Static resources:AppResources.Current_Surveys }" x:Name="tableSectionCurrentSurveys">
             </TableSection>

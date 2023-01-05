@@ -4,12 +4,13 @@
              x:Class="MediMonitor.Pages.SettingsPage"
              xmlns:resources="clr-namespace:MediMonitor.Resources"
              xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome" 
-             Title="SettingsPage">
+             Style="{ StaticResource ContentPageStyle }"
+             Title="{ Static resources:AppResources.Settings }">
     <ContentPage.IconImageSource>
         <FontImageSource FontFamily="FontAwesomeLight" Glyph="{ Static fontawesome:Regular.Gears }" />
     </ContentPage.IconImageSource>
     <ContentPage.Content>
-        <TableView x:Name="tableSettings" Intent="Settings">
+        <TableView x:Name="tableSettings" Intent="Settings" Margin="15,0,15,0">
             <TableSection Title="{ Static resources:AppResources.User_Settings }">
 
                 <TextCell Text="{ Static resources:AppResources.Sign_off }"
@@ -29,6 +30,9 @@
                           x:Name="verwijderenCell"
                           
                           TextColor="{ AppThemeBinding Light={StaticResource UseSettingsDangerLightColor }, Dark={StaticResource UseSettingsDangerDarkColor } }"/>
+
+
+                <TextCell Text="Change Language / Wijzig Taal" x:Name="changeLanguageSetting" />
             </TableSection>
 
             <TableSection Title="{ Static resources:AppResources.App_Settings }">

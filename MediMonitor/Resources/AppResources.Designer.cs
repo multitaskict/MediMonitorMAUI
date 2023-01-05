@@ -133,11 +133,56 @@ namespace MediMonitor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not set reminder, check if notifications are enabled..
+        /// </summary>
+        internal static string Could_Not_Set_Reminder {
+            get {
+                return ResourceManager.GetString("Could Not Set Reminder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Surveys.
         /// </summary>
         internal static string Current_Surveys {
             get {
                 return ResourceManager.GetString("Current Surveys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily notification at:.
+        /// </summary>
+        internal static string Daily_Notification_At {
+            get {
+                return ResourceManager.GetString("Daily Notification At", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily intake at %t .
+        /// </summary>
+        internal static string DailyIntake {
+            get {
+                return ResourceManager.GetString("DailyIntake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily intake at %t for %d days.
+        /// </summary>
+        internal static string DailyIntakeDays {
+            get {
+                return ResourceManager.GetString("DailyIntakeDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to for %d days.
+        /// </summary>
+        internal static string Days {
+            get {
+                return ResourceManager.GetString("Days", resourceCulture);
             }
         }
         
@@ -187,6 +232,15 @@ namespace MediMonitor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Flash.
         /// </summary>
         internal static string Flash {
@@ -210,6 +264,15 @@ namespace MediMonitor.Resources {
         internal static string History {
             get {
                 return ResourceManager.GetString("History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        internal static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
             }
         }
         
@@ -250,6 +313,42 @@ namespace MediMonitor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Medication.
+        /// </summary>
+        internal static string Medication {
+            get {
+                return ResourceManager.GetString("Medication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medication reminder.
+        /// </summary>
+        internal static string Medication_reminder {
+            get {
+                return ResourceManager.GetString("Medication reminder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medicationmessages.
+        /// </summary>
+        internal static string Medicationmessages {
+            get {
+                return ResourceManager.GetString("Medicationmessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medicine.
+        /// </summary>
+        internal static string Medicine {
+            get {
+                return ResourceManager.GetString("Medicine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to XMediMonitor has been updated.
         /// </summary>
         internal static string MediMonitor_updated {
@@ -282,6 +381,24 @@ namespace MediMonitor.Resources {
         internal static string Not_connected {
             get {
                 return ResourceManager.GetString("Not connected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notifications enabled for.
+        /// </summary>
+        internal static string Notifications_Enabled_For {
+            get {
+                return ResourceManager.GetString("Notifications Enabled For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All future notifications have been removed..
+        /// </summary>
+        internal static string Notifications_removed {
+            get {
+                return ResourceManager.GetString("Notifications removed", resourceCulture);
             }
         }
         
@@ -511,6 +628,15 @@ namespace MediMonitor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Switch language?.
+        /// </summary>
+        internal static string Switch_Language {
+            get {
+                return ResourceManager.GetString("Switch Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Synchronise.
         /// </summary>
         internal static string Sync {
@@ -525,6 +651,24 @@ namespace MediMonitor.Resources {
         internal static string Sync_Complete {
             get {
                 return ResourceManager.GetString("Sync Complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take now your medication for.
+        /// </summary>
+        internal static string Take_Medication_Notification {
+            get {
+                return ResourceManager.GetString("Take Medication Notification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hh:mm.
+        /// </summary>
+        internal static string TimePickerFormat {
+            get {
+                return ResourceManager.GetString("TimePickerFormat", resourceCulture);
             }
         }
         

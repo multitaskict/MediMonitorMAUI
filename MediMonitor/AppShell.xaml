@@ -5,24 +5,27 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MediMonitor"
     xmlns:pages="clr-namespace:MediMonitor.Pages"
+             xmlns:resources="clr-namespace:MediMonitor.Resources"
     xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome"
+    Title="Multitask MediMonitor"
     Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        FlyoutItemIsVisible="False"
-        Title="Loading"
-        ContentTemplate="{ DataTemplate pages:LoadingPage }"
-        Route="Loading" /> 
 
     <ShellContent
         FlyoutItemIsVisible="False"
-        Title="Home"
+        Title="{ Static resources:AppResources.LoadingApplication }"
+        ContentTemplate="{ DataTemplate pages:LoadingPage }"
+        Route="Loading" />
+
+    <ShellContent
+        FlyoutItemIsVisible="False"
+        Title="{ Static resources:AppResources.Home }"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="SignIn" />
 
     <FlyoutItem Route="Main" Title="MediMonitor" FlyoutDisplayOptions="AsMultipleItems">
 
-        <ShellContent x:Name="ShellSurvey" Route="Survey" Title="Survey"  ContentTemplate="{ DataTemplate pages:SurveyPage }">
+        <ShellContent x:Name="ShellSurvey" Route="Survey" Title="{ Static resources:AppResources.Survey }"  ContentTemplate="{ DataTemplate pages:SurveyPage }">
             <ShellContent.Icon>
                 <FontImageSource
                     FontFamily="FontAwesomeLight"
@@ -32,7 +35,7 @@
             </ShellContent.Icon>
         </ShellContent>
 
-        <ShellContent x:Name="shellMedication" Route="Medication" Title="Medication" ContentTemplate="{ DataTemplate pages:MedicationPage }">
+        <ShellContent x:Name="shellMedication" Route="Medication" Title="{ Static resources:AppResources.Medication }" ContentTemplate="{ DataTemplate pages:MedicationPage }">
             <ShellContent.Icon>
                 <FontImageSource 
                     FontFamily="FontAwesomeLight"
@@ -42,7 +45,7 @@
             </ShellContent.Icon>
         </ShellContent>
 
-        <ShellContent Route="History" Title="History" ContentTemplate="{ DataTemplate pages:HistoryPage }">
+        <ShellContent Route="History" Title="{ Static resources:AppResources.History }" ContentTemplate="{ DataTemplate pages:HistoryPage }">
             <ShellContent.Icon>
                 <FontImageSource
                     FontFamily="FontAwesomeLight"
@@ -54,12 +57,12 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Route="Settings" Title="Settings" FlyoutDisplayOptions="AsSingleItem">
-        <ShellContent x:Name="ShellSettings" Title="Settings" ContentTemplate="{ DataTemplate pages:SettingsPage }" />
+    <FlyoutItem Route="Settings" Title="{ Static resources:AppResources.Settings }" FlyoutDisplayOptions="AsSingleItem">
+        <ShellContent x:Name="ShellSettings" Title="{ Static resources:AppResources.Settings }" ContentTemplate="{ DataTemplate pages:SettingsPage }" />
     </FlyoutItem>
 
     <MenuItem
-        Text="Sign Out"
+        Text="{ Static resources:AppResources.Sign_off }"
         Clicked="MenuItem_Clicked"
     >
         <MenuItem.IconImageSource>
@@ -71,7 +74,7 @@
         </MenuItem.IconImageSource>
     </MenuItem>
 
-    
-    <MenuItem Text="Exit" x:Name="ExitMenuItem" Clicked="ExitMenuItem_Clicked" />
+
+    <MenuItem Text="{ Static resources:AppResources.Exit }" x:Name="ExitMenuItem" Clicked="ExitMenuItem_Clicked" />
 
 </Shell>

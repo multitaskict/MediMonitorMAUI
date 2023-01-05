@@ -141,8 +141,23 @@
   <data name="Confirm choice" xml:space="preserve">
     <value>Confirm choice</value>
   </data>
+  <data name="Could Not Set Reminder" xml:space="preserve">
+    <value>Could not set reminder, check if notifications are enabled.</value>
+  </data>
   <data name="Current Surveys" xml:space="preserve">
     <value>Current Surveys</value>
+  </data>
+  <data name="Daily Notification At" xml:space="preserve">
+    <value>Daily notification at:</value>
+  </data>
+  <data name="DailyIntake" xml:space="preserve">
+    <value>Daily intake at %t </value>
+  </data>
+  <data name="DailyIntakeDays" xml:space="preserve">
+    <value>Daily intake at %t for %d days</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>for %d days</value>
   </data>
   <data name="Download data" xml:space="preserve">
     <value>Download data</value>
@@ -159,6 +174,9 @@
   <data name="Enter today's score" xml:space="preserve">
     <value>Enter today's score.</value>
   </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="Flash" xml:space="preserve">
     <value>Flash</value>
   </data>
@@ -167,6 +185,9 @@
   </data>
   <data name="History" xml:space="preserve">
     <value>History</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
   </data>
   <data name="Instructions" xml:space="preserve">
     <value>Scan the QR Code that is included in the package.</value>
@@ -180,6 +201,18 @@
   <data name="Manual Entry Info" xml:space="preserve">
     <value>Enter the text beneath the QR code.</value>
   </data>
+  <data name="Medication" xml:space="preserve">
+    <value>Medication</value>
+  </data>
+  <data name="Medication reminder" xml:space="preserve">
+    <value>Medication reminder</value>
+  </data>
+  <data name="Medicationmessages" xml:space="preserve">
+    <value>Medicationmessages</value>
+  </data>
+  <data name="Medicine" xml:space="preserve">
+    <value>Medicine</value>
+  </data>
   <data name="MediMonitor updated" xml:space="preserve">
     <value>XMediMonitor has been updated</value>
   </data>
@@ -191,6 +224,12 @@
   </data>
   <data name="Not connected" xml:space="preserve">
     <value>You are not connected to the internet.Connect and try again.</value>
+  </data>
+  <data name="Notifications Enabled For" xml:space="preserve">
+    <value>Notifications enabled for</value>
+  </data>
+  <data name="Notifications removed" xml:space="preserve">
+    <value>All future notifications have been removed.</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
@@ -267,11 +306,20 @@
   <data name="Survey sent" xml:space="preserve">
     <value>Your survey response has been sent.</value>
   </data>
+  <data name="Switch Language" xml:space="preserve">
+    <value>Switch language?</value>
+  </data>
   <data name="Sync" xml:space="preserve">
     <value>Synchronise</value>
   </data>
   <data name="Sync Complete" xml:space="preserve">
     <value>Synchronisation completed</value>
+  </data>
+  <data name="Take Medication Notification" xml:space="preserve">
+    <value>Take now your medication for</value>
+  </data>
+  <data name="TimePickerFormat" xml:space="preserve">
+    <value>hh:mm</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
     <value>Do you want to try again?</value>
