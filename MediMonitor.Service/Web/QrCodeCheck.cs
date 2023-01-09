@@ -8,6 +8,35 @@ namespace MediMonitor.Service.Web
 {
     public class QrCodeCheck
     {
+
+        public static bool TryParse(string qrCode, out QrCodeCheck qrCodeCheck)
+        {
+            try
+            {
+                var tempCode = new QrCodeCheck(qrCode);
+                var valid = tempCode.IsValid();
+
+                if (!valid)
+                {
+                    //Not valid
+                    qrCodeCheck = null;
+                    return false;
+                }
+                else
+                {
+                    //Valid
+                    qrCodeCheck = tempCode;
+                    return true;
+                }
+            }
+            catch
+            {
+                //Validation failed.
+                qrCodeCheck = null;
+                return false;
+            }
+        }
+
         public QrCodeCheck(string qrCode)
             : this()
         {
