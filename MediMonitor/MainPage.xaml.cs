@@ -85,7 +85,6 @@ public partial class MainPage : ContentPage
         await Navigation.PushModalAsync(barcodeScanner);
 
 
-
         //try
         //{
             

@@ -11,6 +11,8 @@ public partial class BarcodeScanner : ContentPage
     public BarcodeScanner()
     {
         InitializeComponent();
+
+        
     }
 
     public QrCodeCheck QrCodeCheck { get; set; }
