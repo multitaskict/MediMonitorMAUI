@@ -81,38 +81,28 @@ public partial class MainPage : ContentPage
         }
 
         var barcodeScanner = new BarcodeScanner();
+        barcodeScanner.NavigatedFrom += BarcodeScanner_NavigatedFrom;
 
-        await Navigation.PushModalAsync(barcodeScanner);
-
-
-        //try
-        //{
-            
-
-        //    var scanner = new MobileBarcodeScanner
-        //    {
-        //        CancelButtonText = AppResources.Cancel,
-        //        FlashButtonText = AppResources.Flash
-        //    };
-
-        //    var result = await scanner.Scan();
-
-        //    if (result != null)
-        //    {
-        //        await SignIn(result.Text);
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    await DisplayAlert(
-        //        AppResources.Sign_In_Error,
-        //        AppResources.ResourceManager.GetString(ex.InnerException?.Message) ?? ex.InnerException.Message,
-        //        AppResources.Back
-        //    );
-        //}
-
+        await Navigation.PushModalAsync(barcodeScanner, true);
     }
-     
+
+    private async void BarcodeScanner_NavigatedFrom(object sender, NavigatedFromEventArgs e)
+    {
+        Navigation.RemovePage(sender as Page);
+
+        try
+        {
+            if (sender is BarcodeScanner scanner && scanner.QrCodeCheck != null)
+            {
+                await SignIn(scanner.QrCode);
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("MediMonitor", ex.Message, AppResources.Back);
+        }
+    }
+
     private async Task SignIn(string code)
     {
         try

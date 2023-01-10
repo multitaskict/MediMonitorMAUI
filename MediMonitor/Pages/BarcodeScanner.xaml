@@ -2,13 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediMonitor.Pages.BarcodeScanner"
+             Shell.PresentationMode="ModalAnimated"
 	         xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
-             Title="BarcodeScanner">
-    <Grid RowDefinitions="1*">
+             xmlns:fontawesome="clr-namespace:FontAwesome;assembly=FontAwesome"
+             xmlns:r="clr-namespace:MediMonitor.Resources">
+
+    <Grid x:Name="gridScanner">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
         <zxing:CameraBarcodeReaderView 
             Grid.Row="0"
             x:Name="barcodeView"
             BarcodesDetected="barcodeView_BarcodesDetected"
-            />
+            
+             />
+
+
+        <Label Text="{  Static r:AppResources.Instructions }" Grid.Row="1" Padding="15" HorizontalTextAlignment="Center" />
+
+
+        <StackLayout Orientation="Horizontal" Grid.Row="2" x:Name="stackLayoutButtons" HorizontalOptions="Center">
+            <Button x:Name="cancelButton" Text="{ Static r:AppResources.Cancel }" Clicked="cancelButton_Clicked" 
+                            Style="{ StaticResource DefaultButtonStyle }" />
+            <Button x:Name="flashButton" Text="{ Static r:AppResources.Flash }" Clicked="flashButton_Clicked" 
+                            Style="{ StaticResource DefaultButtonStyle }">
+                <Button.ImageSource>
+                    <FontImageSource FontFamily="FontAwesomeLight"
+                        Glyph="{ Static fontawesome:Regular.Flashlight }"
+                        Color="{AppThemeBinding Light={ StaticResource ButtonLightTextColor }, Dark={ StaticResource ButtonDarkTextColor }}"
+                        />
+                </Button.ImageSource>
+            </Button>
+        </StackLayout>
     </Grid>
 </ContentPage>

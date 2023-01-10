@@ -12,27 +12,91 @@ public partial class BarcodeScanner : ContentPage
     {
         InitializeComponent();
 
-        
+        barcodeView.Options = new BarcodeReaderOptions
+        {
+            AutoRotate = true,
+            Formats = BarcodeFormat.QrCode,
+            Multiple = false,
+            TryHarder = true
+        };
     }
 
     public QrCodeCheck QrCodeCheck { get; set; }
 
-    private async void barcodeView_BarcodesDetected(object sender, BarcodeDetectionEventArgs e)
-    {
-        var qrCode = e.Results.Where(r => r.Format == BarcodeFormat.QrCode).Select(r => r.Value);
+    public string QrCode { get; set; }
 
-        foreach (var qr in qrCode)
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        barcodeView.IsDetecting = false;
+        barcodeView.IsTorchOn = false;
+
+        //Unload the camera.
+        barcodeView.Handler.DisconnectHandler();
+    }
+
+    private void barcodeView_BarcodesDetected(object sender, BarcodeDetectionEventArgs e)
+    {
+        try
         {
-            if (QrCodeCheck.TryParse(qr, out var check))
+            var qrCode = e.Results.Where(r => r.Format == BarcodeFormat.QrCode).Select(r => r.Value).ToArray();
+            var invalidList = new List<string>();
+
+            foreach (var qr in qrCode)
             {
-                QrCodeCheck = check;
+                var tQr = qr;
+                if (tQr.Equals("demo", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    tQr = "T00000000-M0000-C000";
+                }       
+
+                if (QrCodeCheck.TryParse(tQr, out var check))
+                {
+                    QrCodeCheck = check;
+                    QrCode = tQr;
+
+                    MainThread.BeginInvokeOnMainThread(() => Navigation.PopModalAsync());
+                    return;
+                 }
+                else
+                {
+                    invalidList.Add(qr);
+                }
+            }
+
+            if (QrCodeCheck == null)
+            {
+                DisplayMessageOnMainThread(AppResources.Sign_In_Error, AppResources.Unsupported_QR + Environment.NewLine + string.Join(Environment.NewLine, invalidList), AppResources.Cancel);
             }
         }
-
-        if(QrCodeCheck == null)
+        catch(Exception ex)
         {
-            await DisplayAlert("", "Geen geldige QR", AppResources.Cancel);
+            DisplayMessageOnMainThread(AppResources.Sign_In_Error, ex.Message, AppResources.Cancel);
         }
     }
 
+    private void DisplayMessageOnMainThread(string title, string message, string cancel)
+    {
+        MainThread.BeginInvokeOnMainThread(async () =>
+        {
+            await DisplayAlert(title, message, cancel);
+        });
+    }
+
+    async void cancelButton_Clicked(System.Object sender, System.EventArgs e)
+    {
+        await Navigation.PopModalAsync(true);
+    }
+    
+
+    void flashButton_Clicked(System.Object sender, System.EventArgs e)
+    {
+        barcodeView.IsTorchOn = !barcodeView.IsTorchOn;
+
+        if(Application.Current.Resources.TryGetValue(barcodeView.IsTorchOn ? "ActiveButtonStyle" : "DefaultButtonStyle", out var styleObject) &&  styleObject is Style style)
+        {
+            flashButton.Style = style;
+        }
+    }
 }

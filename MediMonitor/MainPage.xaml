@@ -31,7 +31,7 @@
                             Clicked="buttonScanQR_Clicked"
                             ContentLayout="Left, 5"
                             Style="{ StaticResource DefaultButtonStyle }"
-                            IsVisible="{ OnPlatform True, WinUI=False }"
+                            IsVisible="{ OnPlatform True, WinUI=False, MacCatalyst=False }"
                             >
                     <Button.ImageSource>
                         <FontImageSource FontFamily="FontAwesomeThin"
@@ -47,7 +47,6 @@
                     <Button.ImageSource>
                         <FontImageSource FontFamily="FontAwesomeLight"
                                              Glyph="{ Static fontawesome:Regular.PenField }"
-                                             Color="{AppThemeBinding Light={ StaticResource ButtonLightTextColor }, Dark={ StaticResource ButtonDarkTextColor }}"
                                              />
                     </Button.ImageSource>
                 </Button>

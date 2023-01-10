@@ -19,10 +19,14 @@ public partial class LoadingPage : ContentPage
         exceptionLabel.Text = ex.Message;
 
         aiLoader.IsRunning = false;
+
+        retryButton.IsEnabled = true;
     }
 
     private void retryButton_Clicked(object sender, EventArgs e)
 	{
+        retryButton.IsEnabled = false;
+
         App.Relaunch();
 	}
 }

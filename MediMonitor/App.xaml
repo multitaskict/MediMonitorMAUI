@@ -7,8 +7,10 @@
         
         <!-- Colors for Light mode -->
         <Color x:Key="PrimaryButtonLightColor">#2A2AC0</Color>
+        <Color x:Key="ActiveButtonLightColor">#f5d45f</Color>
         <Color x:Key="SecondaryButtonLightColor">#58595B</Color>
         <Color x:Key="ButtonLightTextColor">#FFF</Color>
+        <Color x:Key="ButtonLightInvertedTextColor">#333</Color>
         <Color x:Key="ContentLightBackgroundColor">#EDF1FA</Color>
         <Color x:Key="TextMutedLightColor">Gray</Color>
 
@@ -27,7 +29,9 @@
         <!-- Colors for Dark mode -->
         <Color x:Key="PrimaryButtonDarkColor">#6060d6</Color>
         <Color x:Key="SecondaryButtonDarkColor">#616469</Color>
+        <Color x:Key="ActiveButtonDarkColor">#f5d45f</Color>
         <Color x:Key="ButtonDarkTextColor">#FFF</Color>
+        <Color x:Key="ButtonDarkInvertedTextColor">#333</Color>
         <Color x:Key="ContentDarkBackgroundColor">#000</Color>
         <Color x:Key="TextMutedDarkColor">Gray</Color>
 
@@ -61,6 +65,18 @@
 
             <Setter Property="TextColor"
                     Value="{ AppThemeBinding Light={ StaticResource ButtonLightTextColor}, Dark={StaticResource ButtonDarkTextColor}}" />
+
+            <Setter Property="Margin"
+                    Value="50,10,50,10" />
+        </Style>
+
+        
+        <Style x:Key="ActiveButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="{ AppThemeBinding Light={StaticResource ActiveButtonLightColor}, Dark={StaticResource ActiveButtonDarkColor} }" />
+
+            <Setter Property="TextColor"
+                    Value="{ AppThemeBinding Light={ StaticResource ButtonLightInvertedTextColor}, Dark={StaticResource ButtonDarkInvertedTextColor}}" />
 
             <Setter Property="Margin"
                     Value="50,10,50,10" />
