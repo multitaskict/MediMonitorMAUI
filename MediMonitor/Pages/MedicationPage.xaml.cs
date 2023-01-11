@@ -86,7 +86,7 @@ public partial class MedicationPage : ContentPage
                 }
                 stack.Children.Add(labelIntake);
 
-                var meldingStack = new StackLayout { Orientation = StackOrientation.Horizontal };
+                var meldingStack = new StackLayout { Orientation = StackOrientation.Horizontal, Padding = new Thickness(10) };
                 meldingStack.Children.Add(new Label { Text = AppResources.Daily_Notification_At, Margin = new Thickness(5) });
                 var timePicker = new TimePicker { Time = intake.Notification ?? intake.Tijdstip, ClassId = "intake_" + intake.Id, Format = AppResources.TimePickerFormat };
 

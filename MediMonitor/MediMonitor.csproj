@@ -102,12 +102,12 @@
 	<ItemGroup>
 	  <PackageReference Include="Plugin.LocalNotification" Version="10.0.3" />
 	  <PackageReference Include="ZXing.Net.Maui" Version="0.3.0-preview.1" />
-	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.3" />
-	  <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.3" />
-	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.3" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
+	  <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.4" />
+	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.4" />
 	  <PackageReference Include="SQLitePCLExRaw.bundle_green" Version="2.1.1-pre20220801061241" />
 	  <PackageReference Include="ZXing.Net.Maui.Controls" Version="0.3.0-preview.1" />
-	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.3" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
 	</ItemGroup>
 
 	<ItemGroup>

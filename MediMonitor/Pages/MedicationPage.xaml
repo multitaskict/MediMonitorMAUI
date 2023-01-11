@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediMonitor.Pages.MedicationPage"
@@ -17,7 +17,14 @@
             </Grid.RowDefinitions>
 
 
-            <Label Text="{ Static resources:AppResources.Enable_Notifications_Info }" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" IsVisible="true" Grid.Row="0"></Label>
+            <Label Text="{ Static resources:AppResources.Enable_Notifications_Info }"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   IsVisible="true"
+                   Grid.Row="0"
+                   Padding="10"
+                   ></Label>
 
 
             <StackLayout x:Name="layoutNotification" Grid.Row="2" Orientation="Vertical">
